@@ -4,6 +4,7 @@ const {
   createBooking,
   getUserBookings,
   cancelBooking,
+  getBookingById,
 } = require("../controllers/bookingController");
 
 const protect = require("../middleware/authMiddleware");
@@ -13,6 +14,9 @@ router.post("/", protect, createBooking);
 
 
 router.get("/my", protect, getUserBookings);
+
+
+router.get("/:id", protect, getBookingById);
 
 
 router.delete("/:id", protect, cancelBooking);
